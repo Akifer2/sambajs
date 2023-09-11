@@ -22,6 +22,7 @@
             <li><a href="#"><i class="fas fa-question-circle"></i> Help</a></li>
             <button id="dark-mode-button" onclick="toggleDarkMode()"><i id="dark-mode-icon"
                     class="fa fa-sun"></i></button>
+        </ul>
     </nav>
     <div id="sidebar">
         <div id="sidebar-content">
@@ -70,10 +71,20 @@
         <p>Copyright SambaTeam &copy</p>
     </footer>
     <script>
-
         window.addEventListener('load', function () {
             const loadingIndicator = document.getElementById('loading-indicator');
             loadingIndicator.style.display = 'none';
+
+            const savedDarkMode = localStorage.getItem('darkMode');
+            if (savedDarkMode === 'true') {
+                toggleDarkMode();
+            }
+
+            const savedNavbarState = localStorage.getItem('navbarState');
+            if (savedNavbarState === 'hidden') {
+                const nav = document.querySelector('nav');
+                nav.style.top = '-50px';
+            }
         });
 
         function toggleDarkMode() {
@@ -102,31 +113,26 @@
             }
         }
 
-        window.addEventListener('load', function () {
-            const savedDarkMode = localStorage.getItem('darkMode');
-            if (savedDarkMode === 'true') {
-                toggleDarkMode();
-            }
-        });
+        const listItens = document.querySelectorAll('li');
 
         listItens.forEach(item => {
-            item.addEventListener("click", () => {
-                listItens.forEach(li => li.classList.remove("active"));
-
-                item.classList.add("active");
+            item.addEventListener('click', () => {
+                listItens.forEach(li => li.classList.remove('active'));
+                item.classList.add('active');
             });
         });
 
-        window.addEventListener("scroll", function () {
-            var navbar = document.getElementById("navbar");
+        window.addEventListener('scroll', function () {
+            var nav = document.querySelector('nav');
             if (window.scrollY > 0) {
-                navbar.style.top = "0";
+                nav.style.top = '0';
             } else {
-                navbar.style.top = "-100px";
+                nav.style.top = '-50px';
             }
+
+            const navbarState = window.scrollY > 0 ? 'hidden' : 'visible';
+            localStorage.setItem('navbarState', navbarState);
         });
-
-
     </script>
 </body>
 
