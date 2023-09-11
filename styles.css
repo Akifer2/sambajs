@@ -90,6 +90,11 @@ p {
     font-family: var(--font-family-body);
 }
 
+#content {
+    transform: scale(1.2);
+    transform-origin: top left;
+}
+
 /* Estilo para o conteúdo principal */
 #content>p {
     font-size: 12px;
