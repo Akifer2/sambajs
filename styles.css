@@ -1,0 +1,284 @@
+/* Defina as variáveis de CSS no :root */
+:root {
+    --background-color: #fafafa;
+    --primary-color: #131313;
+    --accent-color: #a61ae7;
+    --text-color: #131313;
+    --font-family-main: 'Arial', sans-serif;
+    --font-family-heading: 'Rubik', sans-serif;
+    --font-family-body: 'Montserrat', sans-serif;
+}
+
+/* Reset de estilos e configuração de layout */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background-color);
+    font-family: var(--font-family-main);
+    transition: 1s ease;
+}
+
+.active {
+    background-color: var(--accent-color);
+    color: var(--background-color);
+    padding: 10px;
+    transition: 1s;
+}
+
+#logo {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+}
+
+/* Estilo para a navbar */
+#navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--primary-color);
+    color: #fafafa;
+    padding: 12px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 3;
+    box-shadow: 0 0 10px 4px #00000056;
+    text-transform: uppercase;
+    transition: .5s ease-in-out;
+    gap: 20rem;
+}
+
+#navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 12px;
+}
+
+#navbar li {
+    margin-right: 20px;
+}
+
+#navbar a {
+    text-decoration: none;
+    color: #fafafa;
+    font-weight: bold;
+    font-size: 10px;
+}
+
+#navbar a:hover {
+    color: #dbdbdb;
+    transition: color .3s ease-in-out;
+}
+
+/* Estilo para títulos */
+h1 {
+    font-family: var(--font-family-heading);
+    font-size: x-large;
+}
+
+h2 {
+    font-family: var(--font-family-heading);
+    font-size: larger;
+}
+
+p {
+    font-family: var(--font-family-body);
+}
+
+/* Estilo para o conteúdo principal */
+#content>p {
+    font-size: 12px;
+    margin: 20px;
+    line-height: 1.4;
+}
+
+/* Estilo para a sidebar */
+#sidebar {
+    width: 250px;
+    background-color: var(--primary-color);
+    color: #fafafa;
+    padding: 20px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 2;
+}
+
+#sidebar-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+}
+
+#sidebar-content>h2 {
+    color: var(--accent-color);
+    font-family: var(--font-family-heading);
+}
+
+#sidebar-content {
+    margin-top: 46px;
+    font-size: 12px;
+    font-family: var(--font-family-main);
+}
+
+#sidebar-content a:hover:not(.active) {
+    transition: color .5s ease-out;
+    color: #dbdbdb;
+}
+
+/* Estilo para o conteúdo principal */
+#content {
+    flex: 1;
+    padding: 20px;
+    margin: 20px;
+    margin-left: 250px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Estilo para os títulos dentro do conteúdo principal */
+#content h1 {
+    background-color: var(--accent-color);
+    color: #fafafa;
+    padding: 20px;
+}
+
+#content h2 {
+    color: var(--accent-color);
+}
+
+#sidebar ul {
+    list-style: none;
+    padding-left: 20px;
+}
+
+#sidebar li {
+    margin-bottom: 10px;
+}
+
+#sidebar a {
+    text-decoration: none;
+    color: #fafafa;
+}
+
+/* Estilo para o footer */
+footer {
+    background-color: #ebebeb;
+    color: #131313;
+    text-align: center;
+    padding: 10px;
+    z-index: 0;
+}
+
+footer p {
+    font-size: 10px;
+    text-align: end;
+}
+
+.button {
+    display: flex;
+    justify-content: flex-end;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.button button {
+    font-family: var(--font-family-heading);
+    outline: 1px solid var(--accent-color);
+    background: transparent;
+    color: var(--accent-color);
+    border: none;
+    border-radius: 20px;
+    padding: 4px 5rem;
+    font-size: 16px;
+    cursor: pointer;
+    text-transform: capitalize;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.button button:hover {
+    background-color: var(--accent-color);
+    color: var(--background-color);
+}
+
+button span,
+i {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Estilo para o modo claro */
+body:not(.dark-mode) {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+body.dark-mode {
+    background-color: #131313;
+    color: #fafafa;
+}
+
+#navbar.dark-mode {
+    background-color: #000;
+    color: #fafafa;
+}
+
+#sidebar.dark-mode {
+    background-color: #000;
+    color: #fafafa;
+}
+
+footer.dark-mode {
+    background-color: #000;
+    color: #fafafa;
+}
+
+#dark-mode-button {
+    all: unset;
+    cursor: pointer;
+}
+
+/*loading*/
+
+#loading-indicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.spinner {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top: 4px solid var(--accent-color);
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

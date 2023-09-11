@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introdução ao SambaJS</title>
+    <link rel="shortcut icon" href="./icon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <nav id="navbar">
+        <div>
+            <a href="#home"><img src="./logo.svg" alt="logo" id="logo"></a>
+        </div>
+        <ul>
+            <li><a href="#" class=""><i class="fas fa-file"></i> Docs</a></li>
+            <li><a href="#"><i class="fas fa-info-circle"></i> About</a></li>
+            <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#"><i class="fas fa-question-circle"></i> Help</a></li>
+            <button id="dark-mode-button" onclick="toggleDarkMode()"><i id="dark-mode-icon"
+                    class="fa fa-sun"></i></button>
+    </nav>
+    <div id="sidebar">
+        <div id="sidebar-content">
+            <h2>Introdução ao SambaJS</h2>
+            <ul>
+                <li><a href="#Objetivos">Objetivos e Escopo</a></li>
+                <li><a href="#Tecnologias">Escolha de Tecnologias e Arquitetura</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="content">
+        <h1>Bem-vindo ao SambaJS: Simplificando o Desenvolvimento de Websites com Maestria</h1>
+
+        <p>Seja bem-vindo ao <span style="font-weight: 700;">SambaJS</span>, um framework revolucionário que veio para
+            transformar a maneira como os
+            desenvolvedores criam websites com JavaScript. Nosso compromisso é tornar o desenvolvimento web acessível,
+            intuitivo e incrivelmente eficiente. Nossa missão é simplificar integralmente o processo de criação de
+            websites, proporcionando uma experiência única aos nossos usuários.</p>
+
+        <h2 id="Objetivos">Objetivos e Escopo</h2>
+
+        <p>O SambaJS nasceu da necessidade de superar as barreiras enfrentadas pelos desenvolvedores ao criar websites
+            modernos. Nosso principal objetivo é oferecer uma ferramenta robusta e intuitiva que simplifique cada etapa
+            do processo de desenvolvimento web. O que realmente nos diferencia é a ênfase na simplicidade de uso e na
+            curva de aprendizado linear. Queremos que qualquer pessoa, independentemente do nível de experiência, possa
+            criar websites incríveis com facilidade.</p>
+
+        <h2 id="Tecnologias">Escolha de Tecnologias e Arquitetura</h2>
+
+        <p>Para alcançar nossos objetivos, escolhemos cuidadosamente as tecnologias que sustentam o SambaJS. A linguagem
+            TypeScript serve como a base principal deste projeto, proporcionando segurança e eficiência ao
+            desenvolvimento. Além disso, utilizamos ferramentas essenciais como Babel e ESlint para garantir a
+            compatibilidade e a qualidade do código. O ambiente Node.js oferece a infraestrutura necessária para
+            executar nossas inovações.</p>
+        <div class="button">
+            <button>
+                <span>ver mais<i class="fa fa-arrow-right"></i></span>
+            </button>
+        </div>
+    </div>
+    <div id="loading-indicator">
+        <div class="spinner"></div>
+    </div>
+    <footer>
+        <p>Copyright SambaTeam &copy</p>
+    </footer>
+    <script>
+
+        window.addEventListener('load', function () {
+            const loadingIndicator = document.getElementById('loading-indicator');
+            loadingIndicator.style.display = 'none';
+        });
+
+        function toggleDarkMode() {
+            const body = document.body;
+            const sidebar = document.getElementById('sidebar');
+            const content = document.getElementById('content');
+            const footer = document.querySelector('footer');
+            const darkModeIcon = document.getElementById('dark-mode-icon');
+
+            if (body.classList.contains('dark-mode')) {
+                body.classList.remove('dark-mode');
+                sidebar.classList.remove('dark-mode');
+                content.classList.remove('dark-mode');
+                footer.classList.remove('dark-mode');
+                darkModeIcon.classList.remove('fa-sun');
+                darkModeIcon.classList.add('fa-moon');
+                localStorage.setItem('darkMode', 'false');
+            } else {
+                body.classList.add('dark-mode');
+                sidebar.classList.add('dark-mode');
+                content.classList.add('dark-mode');
+                footer.classList.add('dark-mode');
+                darkModeIcon.classList.remove('fa-moon');
+                darkModeIcon.classList.add('fa-sun');
+                localStorage.setItem('darkMode', 'true');
+            }
+        }
+
+        window.addEventListener('load', function () {
+            const savedDarkMode = localStorage.getItem('darkMode');
+            if (savedDarkMode === 'true') {
+                toggleDarkMode();
+            }
+        });
+
+        listItens.forEach(item => {
+            item.addEventListener("click", () => {
+                listItens.forEach(li => li.classList.remove("active"));
+
+                item.classList.add("active");
+            });
+        });
+
+        window.addEventListener("scroll", function () {
+            var navbar = document.getElementById("navbar");
+            if (window.scrollY > 0) {
+                navbar.style.top = "0";
+            } else {
+                navbar.style.top = "-100px";
+            }
+        });
+
+
+    </script>
+</body>
+
+</html>
